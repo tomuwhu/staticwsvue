@@ -11,7 +11,7 @@
            @click="color=i"
            size="sm"> select </b-btn>
     - ->
-    <b-btn :variant="vlist[color]">Én szinem</b-btn>
+    <b-btn :variant="vlist[color]">My color</b-btn>
     </div>
 
     <hr>
