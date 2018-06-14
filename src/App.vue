@@ -16,7 +16,9 @@
 
     <hr>
     <b-btn v-for="text in chatarea"
-             :variant="vlist[text.split(':')[0]%11]">{{text.split(':')[1]}}</b-btn>
+           :variant="vlist[text.split(':')[0]%11]">{{
+             text.split(':')[1]
+           }}</b-btn>
   </div>
 </template>
 
@@ -40,7 +42,11 @@ export default {
   },
   methods: {
     send() {
-        socket.send( (client_id+this.color) + ":" + this.message)
+        socket.send( JSON.stringify({
+            id:     client_id,
+            color:  this.color,
+            msg:    this.message
+        }) )
         this.message=''
     }
   }
