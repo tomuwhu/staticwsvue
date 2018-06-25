@@ -15,13 +15,16 @@ var ct = []
 
 wsServer.on( 'request', r => {
         ct.push( r.accept('echo-protocol',r.origin) )
-        ct[ct.length - 1].on( 'message', m =>
-            ct.forEach( (v,k) => v.sendUTF(m.utf8Data) )
-        )
+        ct[ct.length - 1].on( 'message', m => {
+            let msg = JSON.parse(m.utf8Data)
+            ct.forEach( (v,k) => v.sendUTF(
+              (msg.id+msg.color) + ':' + msg.msg
+            ) )
+        } )
 } )
 
 server.listen(3000, () => {
     console.log(`
-        ws server elérhető a 3000-as porton
+        ws server elérhető a 3000-es porton
     `)
 })
