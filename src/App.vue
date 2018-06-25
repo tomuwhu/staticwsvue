@@ -10,7 +10,7 @@
            :variant="sc"
            @click="color=i"
            size="sm"> select </b-btn>
-    - ->
+    - - >
     <b-btn :variant="vlist[color]">My color</b-btn>
     </div>
 
@@ -22,7 +22,7 @@
 
 <script>
 const client_id=Math.round(Math.random()*1000000)*11
-const socket = new WebSocket('ws://localhost:3000',"echo-protocol")
+const socket = new WebSocket('ws://whome.inf.u-szeged.hu:3005','echo-protocol')
 export default {
   name: 'app',
   data() {
