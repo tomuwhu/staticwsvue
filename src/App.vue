@@ -6,7 +6,7 @@
              @keyup.native.enter="send"></b-input>
     <br>
     <div class="text-center">
-    <b-btn v-for="(sc,i) in vlist"
+    <b-btn :key="i" v-for="(sc,i) in vlist"
            :variant="sc"
            @click="color=i"
            size="sm"> select </b-btn>
@@ -15,7 +15,7 @@
     </div>
 
     <hr>
-    <b-btn v-for="text in chatarea"
+    <b-btn :key="key" v-for="(text,key) in chatarea"
            :variant="vlist[text.split(':')[0]%11]">{{
              text.split(':')[1]
            }}</b-btn>
